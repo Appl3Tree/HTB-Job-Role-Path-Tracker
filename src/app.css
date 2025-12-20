@@ -1,0 +1,306 @@
+/* src/app.css */
+:root {
+    --bg: #050706;
+    --panel: rgba(255, 255, 255, 0.04);
+    --panel-2: rgba(255, 255, 255, 0.06);
+    --border: rgba(255, 255, 255, 0.09);
+    --text: rgba(255, 255, 255, 0.92);
+    --muted: rgba(255, 255, 255, 0.62);
+    --accent: #9fef00;
+    --danger: #ff4d4f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    color: var(--text);
+
+    /* Cleaner, non-banding background. Keep it subtle and fixed. */
+    background:
+        radial-gradient(900px 500px at 18% 12%, rgba(159, 239, 0, 0.07), transparent 62%),
+        radial-gradient(700px 420px at 82% 18%, rgba(159, 239, 0, 0.04), transparent 58%),
+        radial-gradient(1200px 900px at 50% 120%, rgba(0, 0, 0, 0.55), transparent 60%),
+        linear-gradient(180deg, #070a08 0%, #050706 60%, #040605 100%);
+    background-attachment: fixed;
+}
+
+a {
+    color: inherit;
+}
+
+.page {
+    min-height: 100%;
+    padding: 28px 0 50px;
+}
+
+.container {
+    width: min(1100px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+.top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 18px rgba(159, 239, 0, 0.35);
+}
+
+.brand__title {
+    font-weight: 750;
+    letter-spacing: 0.02em;
+    font-size: 18px;
+}
+
+.subtitle {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.overview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.30);
+    backdrop-filter: blur(6px);
+    margin-bottom: 14px;
+}
+
+.overview__metric {
+    display: grid;
+    gap: 4px;
+}
+
+.overview__label {
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.overview__value {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.overview__meta {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.controls {
+    margin-bottom: 14px;
+}
+
+.search {
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.45);
+    color: var(--text);
+    outline: none;
+}
+
+.search:focus {
+    border-color: rgba(159, 239, 0, 0.30);
+    box-shadow: 0 0 0 3px rgba(159, 239, 0, 0.10);
+}
+
+.grid {
+    display: grid;
+    gap: 14px;
+}
+
+.card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+
+    /* Slightly darker / more uniform to avoid “striping” */
+    background: rgba(0, 0, 0, 0.32);
+    backdrop-filter: blur(8px);
+}
+
+.card__header {
+    padding: 14px;
+    display: grid;
+    gap: 12px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03), transparent);
+}
+
+.card__titleRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.card__name {
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    font-size: 16px;
+}
+
+.card__sub {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(159, 239, 0, 0.30);
+    background: rgba(159, 239, 0, 0.06);
+    color: rgba(159, 239, 0, 0.95);
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.card__actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    cursor: pointer;
+    font-weight: 650;
+    font-size: 13px;
+}
+
+.btn:hover {
+    border-color: rgba(159, 239, 0, 0.22);
+}
+
+.btn--ghost {
+    background: transparent;
+}
+
+.btn--danger {
+    border-color: rgba(255, 77, 79, 0.30);
+    background: rgba(255, 77, 79, 0.08);
+}
+
+.btn--danger:hover {
+    border-color: rgba(255, 77, 79, 0.55);
+}
+
+.card__body {
+    padding: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.22);
+}
+
+.moduleList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.module {
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.32);
+    overflow: hidden;
+}
+
+.module--done {
+    border-color: rgba(159, 239, 0, 0.28);
+    background: rgba(159, 239, 0, 0.06);
+}
+
+.module__row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+}
+
+.module__num {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+    flex: 0 0 auto;
+}
+
+.module--done .module__num {
+    border-color: rgba(159, 239, 0, 0.35);
+    background: rgba(159, 239, 0, 0.10);
+    color: rgba(159, 239, 0, 0.95);
+}
+
+.module__label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    min-width: 0;
+    flex: 1;
+}
+
+.module__name {
+    line-height: 1.25;
+    min-width: 0;
+}
+
+.empty {
+    color: var(--muted);
+    font-size: 13px;
+    padding: 8px 0;
+}
+
+.footer {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
